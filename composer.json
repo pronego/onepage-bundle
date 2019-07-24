@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Wr\\OnepageBundle\\": "src/"
+      "Jl\\OnepageBundle\\": "src/"
     },
     "classmap": [
       "src/Resources/contao/"
