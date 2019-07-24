@@ -2,10 +2,10 @@
 <xliff version="1.1">
   <file datatype="php" original="src/Resources/contao/languages/en/modules.php" source-language="de">
     <body>
-      <trans-unit id="FMD.wr-onepage-navigation.0">
+      <trans-unit id="FMD.jl-onepage-nav.0">
         <source>One Page Navigation</source>
       </trans-unit>
-      <trans-unit id="FMD.wr-onepage-navigation.1">
+      <trans-unit id="FMD.jl-onepage-nav.1">
         <source>Erstellt ein One Page Navigation der entsprechenden Artikel</source>
       </trans-unit>
       <trans-unit id="tl_module.redirect_legend">

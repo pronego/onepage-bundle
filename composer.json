@@ -1,15 +1,12 @@
 {
-  "name": "wr/onepage-bundle",
+  "name": "jl/onepage-nav",
   "type": "contao-bundle",
   "description": "This Onepage Bundle add a one page navigation module to Contao Open Source CMS. No jQuery required!",
   "keywords": ["onepage","one","page","navigation","article","contao"],
-  "homepage": "https://github.com/webrealisierung-ch/onepage-bundle",
   "license": "GPL-3.0-or-later",
   "authors": [
     {
-      "name": "Daniel Steuri ",
-      "email": "mail@webrealisierung.ch",
-      "homepage": "https://webrealisierung.ch"
+      "name": "Jonas Linn ",
     }
   ],
   "require": {
@@ -30,6 +27,6 @@
     ]
   },
   "extra": {
-    "contao-manager-plugin": "Wr\\OnepageBundle\\ContaoManager\\Plugin"
+    "contao-manager-plugin": "Jl\\OnepageNav\\ContaoManager\\Plugin"
   }
 }

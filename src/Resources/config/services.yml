@@ -1,4 +1,4 @@
 services:
-    wr.onepage.hooks:
-        class: Wr\OnepageBundle\Service\OnepageHooks
+    jl.onepage.hooks:
+        class: Jl\OnepageNav\Service\OnepageHooks
         public: true

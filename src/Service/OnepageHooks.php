@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @copyright 2017 Webrealisierung GmbH
+ * @copyright
  *
  * @license LGPL-3.0+
  */
 
-namespace Wr\OnepageBundle\Service;
+namespace Jl\OnepageNav\Service;
 
 /*
-* @author Daniel Steuri <mail@webrealisierung.ch>
+* @author Jonas Linn
 *
 */
 class OnepageHooks
