@@ -42,41 +42,15 @@ class ModuleJlOnepage extends \Module {
             		}
         		}
         	}
-        	if($page_articles != array()){
+        	if($page_articles != array() OR strlen($page->in_onepage)){
             	array_push($arrPages, 
             		array(
-            		'title' => $page->pageTitle, 
+            		'title' => $page->title, 
             		'uri' => $page->getFrontendUrl(''),
             		'articles' => $page_articles)
             	);
             }
         }
-        /*
-        
-        foreach($Pages as $page){
-        	$articles=\Contao\ArticleModel::findByPid($page->id, array('order'=>'sorting'));
-        	$page_articles = array();
-        	foreach($articles as $article){
-        		if(strlen($article->in_onepage && $article->published)){
-        		print_r($article);
-                	array_push($page_articles,
-                    	array(
-                        	'title'=>$article->title,
-                        	'alias'=> $article->alias
-                    	)
-                	);
-            	}
-        	}
-        	if($page_articles != array()){
-            	array_push($arrPages, 
-            		array(
-            		'title' => $page->pageTitle, 
-            		'uri' => $page->getFrontendUrl(''),
-            		'articles' => $page_articles)
-            	);
-            }
-        }
-        */
         
 
         $this->Template->request = ampersand(\Environment::get('indexFreeRequest'));

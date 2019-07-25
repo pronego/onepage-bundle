@@ -13,7 +13,7 @@ $GLOBALS['TL_DCA']['tl_article']['fields']['in_onepage'] = array
 
 $GLOBALS['TL_DCA']['tl_article']['fields']['in_onepage_level_lower'] = array
 (
-	'label'                   =>  "in onepage level lower",//&$GLOBALS['TL_LANG']['tl_article']['in_onepage'],
+	'label'                   =>  &$GLOBALS['TL_LANG']['tl_article']['in_onepage_level_lower'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
 	'eval'                    => array('tl_class'=>'w50'),

@@ -11,6 +11,12 @@
             <trans-unit id="tl_article.in_onepage.1">
                 <source>Diesen Artikel in der One Page Navigation anzeigen</source>
             </trans-unit>
+            <trans-unit id="tl_article.in_onepage_level_lower.0">
+                <source>Untergeordnet anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_article.in_onepage.1">
+                <source>Diesen Artikel untergeordnet zum vorhergehenden Artikel in der One Page Navigation anzeigen</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
