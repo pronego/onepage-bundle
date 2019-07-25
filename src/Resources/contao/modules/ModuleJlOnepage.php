@@ -29,20 +29,34 @@ class ModuleJlOnepage extends \Module {
         
          foreach($Pages as $page){
         	$articles=\Contao\ArticleModel::findByPid($page->id, array('order'=>'sorting'));
-        	$page_articles = array();
+        	$page_articles = array(array());
         	if(!is_null($articles)){
+        		$i = 0;
         		while($articles->next()){
         			if(strlen($articles->in_onepage && $articles->published)){
-                		array_push($page_articles,
-                    		array(
-                        	'title'=>$articles->title,
-                        	'alias'=> $articles->alias
-                    		)
-                		);
+
+        				if(!$articles->in_onepage_level_lower){
+							$page_articles[$i][] =
+								array(
+									'title'=> $articles->title,
+									'alias'=> $articles->alias,
+								);
+							$page_articles[$i]['subarticles'] = array();
+							$i = $i+1;
+
+						}elseif($i > 0){
+							$page_articles[$i-1]['subarticles'][] =
+								array(
+									'title'=> $articles->title,
+									'alias'=> $articles->alias
+								);
+						}
+
             		}
+
         		}
         	}
-        	if($page_articles != array() OR strlen($page->in_onepage)){
+        	if($page_articles != array(array()) OR strlen($page->in_onepage)){
             	array_push($arrPages, 
             		array(
             		'title' => $page->title, 
@@ -51,6 +65,8 @@ class ModuleJlOnepage extends \Module {
             	);
             }
         }
+		//print_r(json_encode($arrPages[0]));
+		//print_r($arrPages[0]);
         
 
         $this->Template->request = ampersand(\Environment::get('indexFreeRequest'));
