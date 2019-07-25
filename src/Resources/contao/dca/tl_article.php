@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['TL_DCA']['tl_article']['palettes']['default']=preg_replace('/{expert_legend:hide}/','{onepage_legend:hide},in_onepage;{expert_legend:hide}',$GLOBALS['TL_DCA']['tl_article']['palettes']['default']);
+$GLOBALS['TL_DCA']['tl_article']['palettes']['default']=preg_replace('/{expert_legend:hide}/','{onepage_legend:hide},in_onepage,in_onepage_level_lower;{expert_legend:hide}',$GLOBALS['TL_DCA']['tl_article']['palettes']['default']);
 
 $GLOBALS['TL_DCA']['tl_article']['fields']['in_onepage'] = array
 (
