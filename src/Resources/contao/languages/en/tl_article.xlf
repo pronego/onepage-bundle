@@ -11,6 +11,12 @@
             <trans-unit id="tl_article.in_onepage.1">
                 <source>Show this article in onepage navigation menu</source>
             </trans-unit>
+			<trans-unit id="tl_article.in_onepage_level_lower.0">
+                <source>Show at sublevel</source>
+            </trans-unit>
+            <trans-unit id="tl_article.in_onepage_level_lower.1">
+                <source>Show this article as as a subarticle in the in onepage navigation menu</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

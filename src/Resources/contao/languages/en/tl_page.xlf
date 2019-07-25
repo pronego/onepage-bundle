@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file datatype="php" original="src/Resources/contao/languages/en/tl_page.php" source-language="de">
+        <body>
+            <trans-unit id="tl_page.onepage_legend">
+                <source>One Page Setting</source>
+            </trans-unit>
+            <trans-unit id="tl_page.in_onepage.0">
+                <source>Show this page in onepage navigation</source>
+            </trans-unit>
+            <trans-unit id="tl_page.in_onepage.1">
+                <source>Show this page in onepage navigation menu, even if no articles on this page are selected.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
