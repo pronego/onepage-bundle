@@ -6,5 +6,6 @@ array_insert($GLOBALS['FE_MOD']['navigationMenu'],1, array(
 );
 
 #Hooks
-$GLOBALS['TL_HOOKS']['getArticle'][] = array('jl.onepage.hooks', 'addAliasToArticleCssId');
+//$GLOBALS['TL_HOOKS']['getArticle'][] = array('jl.onepage.hooks', 'addAliasToArticleCssId');
+//$GLOBALS['TL_HOOKS']['getArticle'][] = array('OnepageHooks', 'addAliasToArticleCssId');
 

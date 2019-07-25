@@ -6,7 +6,7 @@
  * @license LGPL-3.0+
  */
 
-namespace Jl\OnepageBundle\DependencyInjection;
+namespace Jl\OnepageNav\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

@@ -1,4 +1,4 @@
-<?php if($this->arrArticle):?>
+<?php if($this->arrPages):?>
 <nav <?= $this->cssID?> class="<?= $this->class; ?>">
     <?php if ($this->headline): ?>
         <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
@@ -7,8 +7,14 @@
     <a href="<?= $this->request ?>#<?= $this->skipId ?>" class="invisible"><?= $this->skipNavigation ?></a>
 
     <ul>
-        <?php foreach($this->arrArticle as $artNav): ?>
-            <li> <a href="<?= $this->uri?>#<?= $artNav['alias']?>"><?php echo $artNav['title'] ?></a></li>
+        <?php foreach($this->arrPages as $pageNav): ?>
+            <li> <a href="<?= $pageNav['uri']?>"><?php echo $pageNav['title'] ?></a>
+            <ul>
+            	<?php foreach($pageNav['articles'] as $article): ?>
+            		<li> <a href="<?= $pageNav['uri']?>#<?= $article['alias']?>"><?php echo $article['title'] ?>  </a></li>
+            	<?php endforeach; ?>
+            </ul>
+            </li>
         <?php endforeach;?>
 
     </ul>
