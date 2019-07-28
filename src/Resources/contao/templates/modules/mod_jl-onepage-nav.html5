@@ -14,7 +14,7 @@
                 <?php if($pageNav['articles'] != array(array())): ?>
                     <ul class="article-nav">
             	        <?php foreach($pageNav['articles'] as $article): ?>
-            		        <li> <a href="<?= $pageNav['uri']?>#<?= $article[0]['alias']?>"><?php echo $article[0]['title'] ?>  </a></li>
+            		        <li> <a href="<?= $pageNav['uri']?>#<?= $article[0]['alias']?>"><?php echo $article[0]['title'] ?>  </a>
                             <?php if($article['subarticles'] != array()):?>
                                 <ul class="subarticle-nav">
                                     <?php foreach($article['subarticles'] as $sub): ?>
@@ -22,6 +22,7 @@
                                     <?php endforeach; ?>
                                 </ul>
                             <?php endif;?>
+                            </li>
             	        <?php endforeach; ?>
                     </ul>
                 <?php endif;?>
