@@ -6,23 +6,25 @@
 
     <a href="<?= $this->request ?>#<?= $this->skipId ?>" class="invisible"><?= $this->skipNavigation ?></a>
 
-    <ul>
+    <ul class="page-nav">
         <?php $first = true;?>
         <?php foreach($this->arrPages as $pageNav): ?>
             <li class="<?= ($first ? 'first' : '');?>" > <a class="<?= ($first ? 'first' : '');?>" href="<?= $pageNav['uri']?>"><?php echo $pageNav['title'] ?></a>
                 <?php $first = false;?>
-            <ul>
-            	<?php foreach($pageNav['articles'] as $article): ?>
-            		<li> <a href="<?= $pageNav['uri']?>#<?= $article[0]['alias']?>"><?php echo $article[0]['title'] ?>  </a></li>
-                    <?php if($article['subarticles'] != array()):?>
-                        <ul>
-                            <?php foreach($article['subarticles'] as $sub): ?>
-                                <li> <a href="<?= $pageNav['uri']?>#<?= $sub['alias']?>"><?php echo $sub['title'] ?>  </a></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endif;?>
-            	<?php endforeach; ?>
-            </ul>
+                <?php if($pageNav['articles'] != array(array())): ?>
+                    <ul class="article-nav">
+            	        <?php foreach($pageNav['articles'] as $article): ?>
+            		        <li> <a href="<?= $pageNav['uri']?>#<?= $article[0]['alias']?>"><?php echo $article[0]['title'] ?>  </a></li>
+                            <?php if($article['subarticles'] != array()):?>
+                                <ul class="subarticle-nav">
+                                    <?php foreach($article['subarticles'] as $sub): ?>
+                                        <li> <a href="<?= $pageNav['uri']?>#<?= $sub['alias']?>"><?php echo $sub['title'] ?>  </a></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif;?>
+            	        <?php endforeach; ?>
+                    </ul>
+                <?php endif;?>
             </li>
         <?php endforeach;?>
 
