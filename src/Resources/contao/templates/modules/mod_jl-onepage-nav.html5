@@ -7,15 +7,17 @@
     <a href="<?= $this->request ?>#<?= $this->skipId ?>" class="invisible"><?= $this->skipNavigation ?></a>
 
     <ul>
+        <?php $first = true;?>
         <?php foreach($this->arrPages as $pageNav): ?>
-            <li> <a href="<?= $pageNav['uri']?>"><?php echo $pageNav['title'] ?></a>
+            <li class="<?= ($first ? 'first' : '');?>" > <a class="<?= ($first ? 'first' : '');?>" href="<?= $pageNav['uri']?>"><?php echo $pageNav['title'] ?></a>
+                <?php $first = false;?>
             <ul>
             	<?php foreach($pageNav['articles'] as $article): ?>
             		<li> <a href="<?= $pageNav['uri']?>#<?= $article[0]['alias']?>"><?php echo $article[0]['title'] ?>  </a></li>
                     <?php if($article['subarticles'] != array()):?>
                         <ul>
                             <?php foreach($article['subarticles'] as $sub): ?>
-                                <li> <a href="<?= $sub['uri']?>#<?= $sub['alias']?>"><?php echo $sub['title'] ?>  </a></li>
+                                <li> <a href="<?= $pageNav['uri']?>#<?= $sub['alias']?>"><?php echo $sub['title'] ?>  </a></li>
                             <?php endforeach; ?>
                         </ul>
                     <?php endif;?>
