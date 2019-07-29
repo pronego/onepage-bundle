@@ -3,6 +3,7 @@
 class ModuleJlOnepage extends \Module {
 
     protected $strTemplate = 'mod_jl-onepage-nav';
+	//protected $strTemplate = 'mod_jl-onepage-nav-special';
     protected function compile()
     {
         global $objPage;
@@ -17,16 +18,14 @@ class ModuleJlOnepage extends \Module {
         }
 
         if($this->loadDefaultJavascript){
-            //$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/wronepage/Scroller.min.js';
-            //$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/wronepage/Onepage.min.js';
-            $GLOBALS['TL_BODY'][] = '<script src="bundles/jlonepagenav/Scroller.min.js"></script>';
-            $GLOBALS['TL_BODY'][] = '<script src="bundles/jlonepagenav/Onepage.min.js"></script>';
+            //$GLOBALS['TL_BODY'][] = '<script src="bundles/jlonepagenav/Scroller.min.js"></script>';
+            //$GLOBALS['TL_BODY'][] = '<script src="bundles/jlonepagenav/Onepage.min.js"></script>';
+			//$GLOBALS['TL_BODY'][] = '<script src="bundles/jlonepagenav/smoothscrolling.js"></script>';
         }
         
         
         $Pages = \Contao\PageModel::findAll();
         $arrPages = array();
-        
          foreach($Pages as $page){
         	$articles=\Contao\ArticleModel::findByPid($page->id, array('order'=>'sorting'));
         	$page_articles = array(array());
@@ -59,14 +58,14 @@ class ModuleJlOnepage extends \Module {
         	if($page_articles != array(array()) OR strlen($page->in_onepage)){
             	array_push($arrPages, 
             		array(
-            		'title' => $page->title, 
-            		'uri' => $page->getFrontendUrl(''),
-            		'articles' => $page_articles)
+            			'title' => $page->title,
+            			'uri' => $page->getFrontendUrl(''),
+            			'articles' => $page_articles,
+						'alias' => $page->alias,
+						'id' => $page->id)
             	);
             }
         }
-		//print_r(json_encode($arrPages[0]));
-		//print_r($arrPages[0]);
         
 
         $this->Template->request = ampersand(\Environment::get('indexFreeRequest'));
