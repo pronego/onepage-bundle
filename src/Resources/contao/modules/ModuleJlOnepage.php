@@ -24,13 +24,37 @@ class ModuleJlOnepage extends \Module {
         }
         
         
-        $Pages = \Contao\PageModel::findAll();
+        //$Pages = \Contao\PageModel::findAll();
+		$RootPage = \Contao\PageModel::findOneBy('type', 'root');
+		$Pages = \Contao\PageModel::findByPid($RootPage->id);
+		//print_r($Pages);
         $arrPages = array();
          foreach($Pages as $page){
         	$articles=\Contao\ArticleModel::findByPid($page->id, array('order'=>'sorting'));
+        	$subPages = \Contao\PageModel::findByPid($page->id, array('order'=>'sorting'));
+
         	$page_articles = array(array());
+        	$i = 0;
+
+			 if(!is_null($subPages)){
+
+				 while($subPages->next()){
+					 if(strlen($subPages->in_onepage) && strlen($subPages->published)){
+						 $page_articles[$i][] =
+							 array(
+								 'title'=> $subPages->title,
+								 'alias'=> $subPages->alias,
+								 'uri' => '/'.$subPages->alias.'.html',
+							 );
+						 $page_articles[$i]['subarticles'] = array();
+						 $i = $i+1;
+					 }
+
+				 }
+			 }
+
         	if(!is_null($articles)){
-        		$i = 0;
+
         		while($articles->next()){
         			if(strlen($articles->in_onepage && $articles->published)){
 
@@ -39,6 +63,7 @@ class ModuleJlOnepage extends \Module {
 								array(
 									'title'=> $articles->title,
 									'alias'=> $articles->alias,
+									'uri'=>$page->getFrontendUrl('').'#'.$articles->alias,
 								);
 							$page_articles[$i]['subarticles'] = array();
 							$i = $i+1;
@@ -47,7 +72,8 @@ class ModuleJlOnepage extends \Module {
 							$page_articles[$i-1]['subarticles'][] =
 								array(
 									'title'=> $articles->title,
-									'alias'=> $articles->alias
+									'alias'=> $articles->alias,
+									'uri'=>$page->getFrontendUrl('').'#'.$articles->alias,
 								);
 						}
 
@@ -55,6 +81,7 @@ class ModuleJlOnepage extends \Module {
 
         		}
         	}
+
         	if($page_articles != array(array()) OR strlen($page->in_onepage)){
             	array_push($arrPages, 
             		array(

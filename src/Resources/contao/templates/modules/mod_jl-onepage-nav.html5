@@ -23,7 +23,7 @@
         <?php if($pageNav['articles'] != array(array())): ?>
         <ul class="article-nav <?= $pageNav['alias'] ?>">
             <?php foreach($pageNav['articles'] as $article): ?>
-            <li> <a href="<?= $pageNav['uri']?>#<?= $article[0]['alias']?>"><?php echo $article[0]['title'] ?>  </a>
+            <li> <a href="<?= $article[0]['uri']?>"><?php echo $article[0]['title'] ?>  </a>
                 <?php if($article['subarticles'] != array()):?>
                 <ul class="subarticle-nav">
                     <?php foreach($article['subarticles'] as $sub): ?>
