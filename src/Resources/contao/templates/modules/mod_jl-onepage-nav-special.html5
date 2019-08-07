@@ -1,0 +1,60 @@
+<?php if($this->arrPages):?>
+<nav <?= $this->cssID?> class="<?= $this->class; ?>">
+    <?php if ($this->headline): ?>
+        <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+    <?php endif; ?>
+
+    <a href="<?= $this->request ?>#<?= $this->skipId ?>" class="invisible"><?= $this->skipNavigation ?></a>
+
+    <div class="page-nav">
+    <ul class="page-nav-list">
+        <?php $first = true;?>
+        <?php foreach($this->arrPages as $pageNav): ?>
+            <li class="<?= ($first ? 'first' : '');?>" > <a data-alias="<?= $pageNav['alias'] ?>" class="<?= ($first ? 'first' : '');?>" href="<?= $pageNav['uri']?>"><?php echo $pageNav['title'] ?></a></li>
+            <?php $first = false;?>
+        <?php endforeach;?>
+    </ul>
+    </div>
+
+    <div class="subnavigation">
+        <?php $first = true;?>
+        <?php foreach($this->arrPages as $pageNav): ?>
+        <?php $first = false;?>
+        <?php if($pageNav['articles'] != array(array())): ?>
+        <ul class="article-nav <?= $pageNav['alias'] ?>">
+            <?php foreach($pageNav['articles'] as $article): ?>
+            <li> <a href="<?= $article[0]['uri']?>"><?php echo $article[0]['title'] ?>  </a>
+                <?php if($article['subarticles'] != array()):?>
+                <ul class="subarticle-nav">
+                    <?php foreach($article['subarticles'] as $sub): ?>
+                    <li> <a href="<?= $pageNav['uri']?>#<?= $sub['alias']?>"><?php echo $sub['title'] ?>  </a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </li>
+            <?php endif;?>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif;?>
+        <?php endforeach;?>
+    </div>
+
+    <a id="<?= $this->skipId ?>" class="invisible">&nbsp;</a>
+
+    <?php if($this->loadDefaultJavascript): ?>
+        <script>
+            $(document).ready(function(){
+                $('a[href*="#"]').click(function() {
+                    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                        if (target.length) {
+                            $('html,body').animate({ scrollTop: target.offset().top }, 500);
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
+    <?php endif;?>
+</nav>
+<?php endif;?>
