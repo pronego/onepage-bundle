@@ -11,6 +11,9 @@
             <trans-unit id="tl_page.in_onepage.1">
                 <source>Show this page in onepage navigation menu, even if no articles on this page are selected.</source>
             </trans-unit>
+            <trans-unit id="tl_page.switch_order.0">
+                <source>Show genuine subpages as last navigation points</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

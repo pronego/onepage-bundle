@@ -11,6 +11,9 @@
             <trans-unit id="tl_page.in_onepage.1">
                 <source>Diese Seite in der One Page Navigation anzeigen, selbst wenn keine Artikel dieser Seite ausgewählt sind.</source>
             </trans-unit>
+            <trans-unit id="tl_page.switch_order.0">
+                <source>Echte Unterseiten im Menü hinten anzeigen</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
