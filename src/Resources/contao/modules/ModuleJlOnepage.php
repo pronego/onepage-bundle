@@ -36,17 +36,20 @@ class ModuleJlOnepage extends \Module {
         	$page_articles = array(array());
         	$i = 0;
 
+        	$articles_ = array();
 			 if(!is_null($subPages)){
 
 				 while($subPages->next()){
 					 if(strlen($subPages->in_onepage) && strlen($subPages->published)){
-						 $page_articles[$i][] =
+						 //$page_articles[$i][] =
+						 $articles_[$i][] =
 							 array(
 								 'title'=> $subPages->title,
 								 'alias'=> $subPages->alias,
 								 'uri' => '/'.$subPages->alias.'.html',
 							 );
-						 $page_articles[$i]['subarticles'] = array();
+						 //$page_articles[$i]['subarticles'] = array();
+						 $articles_[$i]['subarticles'] = array();
 						 $i = $i+1;
 					 }
 
@@ -54,6 +57,7 @@ class ModuleJlOnepage extends \Module {
 			 }
 
         	if(!is_null($articles)){
+        		$i = 0;
 
         		while($articles->next()){
         			if(strlen($articles->in_onepage && $articles->published)){
@@ -81,6 +85,13 @@ class ModuleJlOnepage extends \Module {
 
         		}
         	}
+
+        	//if()
+        	if(strlen($page->switch_order)){
+        		$page_articles = array_merge($page_articles, $articles_);
+			}else{
+				$page_articles = array_merge($articles_, $page_articles);
+			}
 
         	if($page_articles != array(array()) OR strlen($page->in_onepage)){
             	array_push($arrPages, 
