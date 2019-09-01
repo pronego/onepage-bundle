@@ -9,7 +9,7 @@
     <ul class="page-nav">
         <?php $first = true;?>
         <?php foreach($this->arrPages as $pageNav): ?>
-            <li class="<?= ($first ? 'first' : '');?>" > <a class="<?= ($first ? 'first' : '');?>" href="<?= $pageNav['uri']?>"><?php echo $pageNav['title'] ?></a>
+            <li class="<?= ($first ? 'first' : '');?>" > <a class="<?= ($first ? 'first' : '');?> <?= ($pageNav['active'] ? 'active' : '');?>" href="<?= $pageNav['uri']?>"><?php echo $pageNav['title'] ?></a>
                 <?php $first = false;?>
                 <?php if($pageNav['articles'] != array(array())): ?>
                     <ul class="article-nav">

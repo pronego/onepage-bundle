@@ -27,7 +27,8 @@ class ModuleJlOnepage extends \Module {
         //$Pages = \Contao\PageModel::findAll();
 		$RootPage = \Contao\PageModel::findOneBy('type', 'root');
 		$Pages = \Contao\PageModel::findByPid($RootPage->id);
-		//print_r($Pages);
+		//print_r($objPage->id."/n ");
+		//print_r($objPage->pid);
         $arrPages = array();
          foreach($Pages as $page){
         	$articles=\Contao\ArticleModel::findByPid($page->id, array('order'=>'sorting'));
@@ -100,7 +101,8 @@ class ModuleJlOnepage extends \Module {
             			'uri' => $page->getFrontendUrl(''),
             			'articles' => $page_articles,
 						'alias' => $page->alias,
-						'id' => $page->id)
+						'id' => $page->id,
+						'active' => (($objPage->id == $page->id) OR ($objPage->pid == $page->id)))
             	);
             }
         }
