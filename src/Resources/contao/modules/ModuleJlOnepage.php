@@ -26,7 +26,7 @@ class ModuleJlOnepage extends \Module {
         
         //$Pages = \Contao\PageModel::findAll();
 		$RootPage = \Contao\PageModel::findOneBy('type', 'root');
-		$Pages = \Contao\PageModel::findByPid($RootPage->id);
+		$Pages = \Contao\PageModel::findByPid($RootPage->id,  array('order'=>'sorting'));
 		//print_r($objPage->id."/n ");
 		//print_r($objPage->pid);
         $arrPages = array();
