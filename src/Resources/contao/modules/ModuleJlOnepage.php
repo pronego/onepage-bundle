@@ -48,6 +48,7 @@ class ModuleJlOnepage extends \Module {
 								 'title'=> $subPages->title,
 								 'alias'=> $subPages->alias,
 								 'uri' => '/'.$subPages->alias.'.html',
+								 'active' => ($objPage->id == $subPages->id)
 							 );
 						 //$page_articles[$i]['subarticles'] = array();
 						 $articles_[$i]['subarticles'] = array();
@@ -56,6 +57,8 @@ class ModuleJlOnepage extends \Module {
 
 				 }
 			 }
+
+			 print_r($articles_);
 
         	if(!is_null($articles)){
         		$i = 0;
