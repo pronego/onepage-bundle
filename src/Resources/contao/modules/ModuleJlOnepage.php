@@ -58,8 +58,6 @@ class ModuleJlOnepage extends \Module {
 				 }
 			 }
 
-			 print_r($articles_);
-
         	if(!is_null($articles)){
         		$i = 0;
 
