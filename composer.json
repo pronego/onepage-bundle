@@ -1,12 +1,14 @@
 {
-  "name": "jl/onepage-nav",
+  "name": "pronego/onepage-bundle",
   "type": "contao-bundle",
   "description": "This Onepage Bundle add a one page navigation module to Contao Open Source CMS. No jQuery required!",
   "keywords": ["onepage","one","page","navigation","article","contao"],
   "license": "GPL-3.0-or-later",
   "authors": [
     {
-      "name": "Jonas Linn"
+      "name": "Jonas Linn",
+      "email": "jl@pronego.com",
+      "homepage": "https://www.pronego.com"
     }
   ],
   "require": {
