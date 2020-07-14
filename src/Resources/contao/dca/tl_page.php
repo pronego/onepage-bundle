@@ -22,4 +22,8 @@ $fields = [
 	]
 ];
 
+// Create array if it doesn't exist
+if ( ! isset($dca['fields'])) {
+   $dca['fields'] = [];
+}
 $dca['fields'] += $fields;
